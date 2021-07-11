@@ -1,0 +1,140 @@
+html,body{
+    width:100%;
+    height:100%;
+
+    padding:0;
+    margin:0;
+
+    overflow: hidden;
+}
+/* SCROLLBAR */
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+    background-color: #666666ff;
+  }
+  
+  ::-webkit-scrollbar {
+    width: 8px;
+    background-color: #666666ff;
+    border-bottom-right-radius: 0.25rem !important;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+    background-color: #4b4b4b;
+  }
+/* END SCROLLBAR */
+#wrap{
+    width:100%;
+    height:100%;
+
+    display:flex;
+
+    justify-content: center;
+    align-items: center;
+}
+#container{
+    width:25%;
+
+    display:none;
+    
+    touch-action: none;
+    box-sizing: border-box;
+
+    position: absolute;
+
+    max-height: 100%;
+    height:500px;
+}
+#content, #text-content{
+    height:100%;
+    max-height:calc(100% - 45.2px);
+}
+#footer, #menu{
+    background-color:#4b4b4b;
+    color:rgba(255,255,255,0.2);
+
+    border-bottom:1px solid #4b4b4b;
+    border-left: 1px solid #4b4b4b;
+    border-right: 1px solid #4b4b4b;
+
+    font-size:60%;
+    font-family:Arial, Helvetica, sans-serif;
+
+    padding:0.3rem;
+
+    position: relative;
+
+    user-select: none;
+}
+#footer{
+    transition: 1s ease;
+}
+#footer-credits{
+    float:right;
+}
+.success{
+    background-color: yellowgreen !important;
+    color:#333!important;
+}
+.failed{
+    background-color: tomato !important;
+    color:#333!important;
+}
+#menu {
+    color:rgba(255,255,255,0.5) !important;
+    border-bottom: 1px solid #575757;
+}
+#resize{
+    position:absolute;
+    right:-6px;
+    bottom:-9px;
+}
+#resize svg{
+    transform: rotate(315deg);
+}
+#menu-close{
+    float:right;
+}
+#menu-close:hover{
+    color:rgba(255,255,255,1);
+}
+
+.button{
+    text-decoration: underline;
+}
+.button:hover{
+    color:rgba(255,255,255,1);
+    text-decoration: none;
+}
+
+#text-content{
+    display:none;
+    background-color:#666666;
+    padding:1rem;
+    margin: 0;
+    color:white;
+
+    overflow-y: scroll;
+}
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+#clipboard-input {
+    width:0px;
+    height:0px;
+
+    border: none;
+    overflow: auto;
+    outline: none;
+
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+
+    resize: none; /*remove the resize handle on the bottom right*/
+
+    position:absolute;
+}

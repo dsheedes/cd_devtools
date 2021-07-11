@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table viewer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jsoneditor/9.5.1/jsoneditor.css" integrity="sha512-vVFige2YQMtzuFbK6ZrV6g8IvTBjgVDVqcvc48JkTexJfrxaE1CJzkM2ti75lSkCSYjV+oV+UfFzEQMSqBvSMw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/darktheme.css">
+    <link rel="stylesheet" href="css/stylesheet.css">
+</head>
+<body>
+    <div id="wrap">
+        <div id="container" class="resize-drag">
+            <div id="menu">
+                <span id="menu-copy" class="button">Copy</span>
+                <span id="menu-view" class="button">LUA View</span>
+                <span id="menu-close">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+                        <path d="M1.293 1.293a1 1 0 0 1 1.414 0L8 6.586l5.293-5.293a1 1 0 1 1 1.414 1.414L9.414 8l5.293 5.293a1 1 0 0 1-1.414 1.414L8 9.414l-5.293 5.293a1 1 0 0 1-1.414-1.414L6.586 8 1.293 2.707a1 1 0 0 1 0-1.414z"/>
+                    </svg>
+                </span>
+            </div>
+            <div id="content">
+                
+            </div>
+            <pre id="text-content"></pre>
+            <textarea type="text" id="clipboard-input" ></textarea>
+            <div id="footer" class="clearfix">
+                <span id="footer-info"></span>
+                <span id="footer-credits">Table Viewer 1.0.0 &middot; Created by Codesign &copy; 2021. <span id="resize"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-filter" viewBox="0 0 16 16">
+                    <path d="M6 10.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5zm-2-3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm-2-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z"/>
+                  </svg></span>
+                </span>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jsoneditor/9.5.1/jsoneditor.min.js" integrity="sha512-NA6kPrAqyMsKDzpFPDLTE9TJn1iwCXSQOSIpdWBgVJMrnNIeYZECh8ePT5QI1tBVN6ZiTklWW3RKOLlxQDfMkA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/interactjs/dist/interact.min.js"></script>
+    <script src="js/draggable.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
