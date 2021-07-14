@@ -15,16 +15,11 @@ RegisterCommand('restart_script', function(source, args)
     end
 end)
 
-RegisterServerEvent('cd_devtools:restart_script')
-AddEventHandler('cd_devtools:restart_script', function()
+RegisterServerEvent('cd_devtools:RestartScript')
+AddEventHandler('cd_devtools:RestartScript', function()
     if saved_resource then
-        TriggerClientEvent('chat:addMessage', -1, {
-            color = { 255, 0, 0},
-            multiline = true,
-            args = {'RESTART SCRIPT WARNING:', saved_resource..' is restarting'}
-        })
 	    StopResource(saved_resource)
-        Citizen.Wait(1000)
+        Wait(500)
         StartResource(saved_resource)
         TriggerClientEvent('chat:addMessage', -1, {
             color = { 255, 0, 0},

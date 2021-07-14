@@ -6,7 +6,7 @@ Citizen.CreateThread(function()
 		end
 
 		if IsControlJustReleased(0, Config.Keys.restart_script) then
-			TriggerServerEvent('cd_devtools:restart_script')
+			TriggerServerEvent('cd_devtools:RestartScript')
 		end
 	end
 end)
@@ -38,27 +38,26 @@ local function tprint (tbl, indent)
 end
 
 local ui_open, last_table = false, ''
-RegisterNetEvent('cd_devtools:tableviewer')
-AddEventHandler('cd_devtools:tableviewer', function(data)
+RegisterNetEvent('table')
+AddEventHandler('table', function(data)
 	if type(data) == 'table' then
 		local string_table = tprint(data)
-		if string_table ~= last_table then
-			if not ui_open then
-				ui_open = true
-				SendNUIMessage({
-				action = 'show',
-				data = data,
-				tprint = string_table
-				})
-			else
-				SendNUIMessage({
-				action = 'update',
-				data = data,
-				tprint = string_table
-				})
-			end
-			last_table = string_table
+		if not ui_open then
+			ui_open = true
+			SendNUIMessage({
+			action = 'show',
+			data = data,
+			tprint = string_table
+			})
+			TriggerEvent('cd_devtools:ToggleNUIFocus')
+		elseif string_table ~= last_table then
+			SendNUIMessage({
+			action = 'update',
+			data = data,
+			tprint = string_table
+			})
 		end
+		last_table = string_table
 	else
 		print('table is nil')
 	end
