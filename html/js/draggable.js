@@ -60,6 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
         restriction: 'parent',
         endOnly: true
       })
-    ]
+    ],
+    ignoreFrom:"#menu-close"
   })
 }, false);
