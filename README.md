@@ -1,5 +1,5 @@
 # Codesign Devtools v1.0.0
-![Devtools UI Preview](https://i.imgur.com/kN3mvPw.png)
+![Devtools UI Preview](https://i.imgur.com/btxkRYr.png)
 ## Description
 Enables FiveM developers to preview their JSON and/or LUA tables with ease. (intended for development, not public servers)
 
