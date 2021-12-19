@@ -1,6 +1,10 @@
 Citizen.CreateThread(function()
 	while true do
 		Wait(5)
+		if IsControlJustReleased(0, Config.Keys.open_ui) then
+			TriggerEvent('table', 'cd_123')
+		end
+
 		if IsControlJustReleased(0, Config.Keys.toggle_nuifocus) then
 			TriggerEvent('cd_devtools:ToggleNUIFocus')
 		end
@@ -13,6 +17,7 @@ end)
 
 --credits https://stackoverflow.com/a/41943392 (google is for more than just porn!)
 local function tprint (tbl, indent)
+	if type(tbl) ~= 'table' then return end
 	if not indent then indent = 0 end
 	local toprint = string.rep(" ", 0) .. "{\r\n"
 	indent = indent + 2 
@@ -37,29 +42,31 @@ local function tprint (tbl, indent)
 	return toprint
 end
 
-local ui_open, last_table = false, ''
+local ui_open, last_data, last_tprint = false, nil, nil
 RegisterNetEvent('table')
 AddEventHandler('table', function(data)
-	if type(data) == 'table' then
-		local string_table = tprint(data)
+	local tprint = tprint(data)
+	if type(data) == 'table' or data == 'cd_123' then
+		if data == 'cd_123' then data = last_data end 
 		if not ui_open then
 			ui_open = true
 			SendNUIMessage({
-			action = 'show',
-			data = data,
-			tprint = string_table
+				action = 'show',
+				data = data or last_data,
+				tprint = tprint or last_tprint
 			})
 			TriggerEvent('cd_devtools:ToggleNUIFocus')
-		elseif string_table ~= last_table then
+		elseif tprint ~= last_tprint then
 			SendNUIMessage({
-			action = 'update',
-			data = data,
-			tprint = string_table
+				action = 'update',
+				data = data or last_data,
+				tprint = tprint or last_tprint
 			})
 		end
-		last_table = string_table
+		last_tprint = tprint or last_tprint
+		last_data = data or last_data
 	else
-		print('table is nil')
+		print(string.format('Table expected, got %s : %s', type(data), data))
 	end
 end)
 
