@@ -1,11 +1,13 @@
 fx_version 'cerulean'
 game 'gta5'
-author 'Codesign#2715'
+author 'discord.gg/codesign'
 description 'Devtools'
 version '1.0.2'
+lua54 'yes'
 
 shared_script 'configs/config.lua'
 client_script 'client/client.lua'
+
 server_scripts{
     'server/*.lua'
 }
